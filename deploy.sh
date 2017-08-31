@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 
 mvn clean package
-scp target/root.war root@47.94.223.147:/home/dogmell/build
+
+rm /home/dogmell/jetty/webapps/root.war
+
+cp target/root.war /home/dogmell/jetty/webapps
