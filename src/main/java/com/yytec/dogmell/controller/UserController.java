@@ -1,9 +1,6 @@
 package com.yytec.dogmell.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +15,7 @@ import java.util.Map;
 public class UserController {
 
     @PostMapping("/user/login")
-    public Map<String, Object> login(@RequestParam String username, @RequestParam String password) {
+    public Map<String, Object> login(@RequestBody String body) {
         Map<String, Object> ret = new HashMap<>();
         ret.put("success", true);
         ret.put("message", "Ok");
