@@ -16,6 +16,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("api")
 public class UserController {
+
     @PostMapping("/user/login")
     public Map<String, Object> login(@RequestParam String username, @RequestParam String password) {
         Map<String, Object> ret = new HashMap<>();
