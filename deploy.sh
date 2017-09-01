@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-mvn clean package
+mvn clean package -Dmaven.test.skip=true
 
 rm /home/dogmell/jetty/webapps/root.war
 
