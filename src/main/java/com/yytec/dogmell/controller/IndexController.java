@@ -36,6 +36,18 @@ public class IndexController {
         ret.put("contextPath", request.getContextPath());
         ret.put("servletPath", request.getServletPath());
         ret.put("queryString", request.getQueryString());
+        ret.put("hostname", getHostname(request));
         return ret;
+    }
+
+    /**
+     * 获取域名
+     *
+     * @param request 请求对象
+     * @return 域名
+     */
+    private static String getHostname(HttpServletRequest request) {
+        StringBuffer url = request.getRequestURL();
+        return url.delete(url.length() - request.getRequestURI().length(), url.length()).append(request.getServletContext().getContextPath()).toString();
     }
 }
