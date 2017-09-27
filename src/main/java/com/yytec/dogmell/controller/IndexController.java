@@ -6,8 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 30/08/2017 22:38
@@ -41,6 +40,10 @@ public class IndexController {
         ret.put("hostname", getHostname(request));
         ret.put("servletContext-contextPath", request.getServletContext().getContextPath());
         ret.put("isSecure", request.isSecure());
+        ret.put("proto", request.getHeader("X-Forwarded-Proto"));
+        Enumeration<String> headers = request.getHeaderNames();
+        List<String> headerList = Collections.list(headers);
+        headerList.forEach(headerName -> ret.put(headerName, request.getHeader(headerName)));
         return ret;
     }
 
