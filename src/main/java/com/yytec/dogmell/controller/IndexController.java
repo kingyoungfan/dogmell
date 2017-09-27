@@ -40,7 +40,6 @@ public class IndexController {
         ret.put("url", request.getRequestURL());
         ret.put("uri", request.getRequestURI());
         ret.put("contextPath", request.getContextPath());
-        ret.put("servletPath", request.getServletPath());
         ret.put("queryString", request.getQueryString());
         ret.put("hostname", getHostname(request));
         ret.put("remoteAddr", request.getRemoteAddr());
