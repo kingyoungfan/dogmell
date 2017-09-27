@@ -61,7 +61,6 @@ public class IndexController {
      * @return 域名
      */
     private static String getHostname(HttpServletRequest request) {
-        StringBuffer url = request.getRequestURL();
-        return url.delete(url.length() - request.getRequestURI().length(), url.length()).append(request.getServletContext().getContextPath()).toString();
+        return request.getHeader("X-Forwarded-Proto") + request.getServerName();
     }
 }
