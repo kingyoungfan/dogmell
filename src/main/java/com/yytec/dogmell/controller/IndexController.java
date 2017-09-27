@@ -37,6 +37,7 @@ public class IndexController {
         ret.put("servletPath", request.getServletPath());
         ret.put("queryString", request.getQueryString());
         ret.put("hostname", getHostname(request));
+        ret.put("servletContext-contextPath", request.getServletContext().getContextPath());
         return ret;
     }
 
