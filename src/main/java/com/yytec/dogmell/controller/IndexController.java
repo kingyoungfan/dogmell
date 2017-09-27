@@ -31,6 +31,11 @@ public class IndexController {
     public Map<String, Object> test(HttpServletRequest request) {
         Map<String, Object> ret = new HashMap<>();
         ret.put("scheme", request.getScheme());
+        ret.put("servletName", request.getServerName());
+        ret.put("servletContext", request.getServletContext());
+        ret.put("servletPath", request.getServletPath());
+        ret.put("serverPort", request.getServerPort());
+        ret.put("serverName", request.getServerName());
         ret.put("protocol", request.getProtocol());
         ret.put("url", request.getRequestURL());
         ret.put("uri", request.getRequestURI());
