@@ -38,6 +38,10 @@ public class IndexController {
         ret.put("servletPath", request.getServletPath());
         ret.put("queryString", request.getQueryString());
         ret.put("hostname", getHostname(request));
+        ret.put("remoteAddr", request.getRemoteAddr());
+        ret.put("remotePort", request.getRemotePort());
+        ret.put("remoteHost", request.getRemoteHost());
+        ret.put("remoteUser", request.getRemoteUser());
         ret.put("servletContext-contextPath", request.getServletContext().getContextPath());
         ret.put("isSecure", request.isSecure());
         ret.put("proto", request.getHeader("X-Forwarded-Proto"));
