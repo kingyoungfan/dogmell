@@ -53,6 +53,12 @@ public class IndexController {
         return ret;
     }
 
+    @GetMapping("testredirect")
+    public String restredirect() {
+        return "redirect:https://m.fulapay.com/jsPay?merchantNo=111222";
+    }
+
+
     /**
      * 获取域名
      *
