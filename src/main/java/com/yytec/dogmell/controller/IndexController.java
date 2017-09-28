@@ -1,10 +1,7 @@
 package com.yytec.dogmell.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
@@ -56,8 +53,11 @@ public class IndexController {
     }
 
     @GetMapping("testredirect")
-    public String restredirect() {
-        return "redirect:https://m.fulapay.com/jsPay?merchantNo=111222";
+    public String restredirect(@RequestParam Integer isSuccess) {
+        if (isSuccess.equals(1))
+            return "redirect:https://m.fulapay.com/jsPay?merchantNo=111222";
+        else
+            return "no redirect";
     }
 
 
