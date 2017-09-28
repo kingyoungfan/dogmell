@@ -53,6 +53,7 @@ public class IndexController {
     }
 
     @GetMapping("testredirect")
+    @ResponseBody
     public String restredirect(@RequestParam Integer isSuccess) {
         if (isSuccess.equals(1))
             return "redirect:https://m.fulapay.com/jsPay?merchantNo=111222";
