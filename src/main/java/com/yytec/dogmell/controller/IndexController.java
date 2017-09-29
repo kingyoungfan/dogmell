@@ -62,7 +62,7 @@ public class IndexController {
         log.info("{},{}", "12", "23");
         if (isSuccess.equals(1)) {
             response.sendRedirect("https://m.fulapay.com/jsPay?merchantNo=111222");
-
+            return null;
         }
         log.info("******{},{}", "12", "23");
         ret.put("name", "yangyang");
