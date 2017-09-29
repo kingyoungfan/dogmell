@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 /**
@@ -54,11 +55,13 @@ public class IndexController {
 
     @GetMapping("testredirect")
     @ResponseBody
-    public String restredirect(@RequestParam Integer isSuccess) {
-        if (isSuccess.equals(1))
-            return "redirect:https://m.fulapay.com/jsPay?merchantNo=111222";
-        else
-            return "no redirect";
+    public void restredirect(HttpServletResponse response, @RequestParam Integer isSuccess) throws Exception {
+        response.sendRedirect("https://m.fulapay.com/jsPay?merchantNo=111222");
+
+//        if (isSuccess.equals(1))
+//            return "redirect:https://m.fulapay.com/jsPay?merchantNo=111222";
+//        else
+//            return "no redirect";
     }
 
 
