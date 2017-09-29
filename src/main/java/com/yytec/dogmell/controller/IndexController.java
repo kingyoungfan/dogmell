@@ -55,13 +55,13 @@ public class IndexController {
 
     @GetMapping("testredirect")
     @ResponseBody
-    public void restredirect(HttpServletResponse response, @RequestParam Integer isSuccess) throws Exception {
+    public String restredirect(HttpServletResponse response, @RequestParam Integer isSuccess) throws Exception {
+
         response.sendRedirect("https://m.fulapay.com/jsPay?merchantNo=111222");
 
-//        if (isSuccess.equals(1))
-//            return "redirect:https://m.fulapay.com/jsPay?merchantNo=111222";
-//        else
-//            return "no redirect";
+        if (isSuccess.equals(1))
+            response.sendRedirect("https://m.fulapay.com/jsPay?merchantNo=111222");
+        return "no redirect";
     }
 
 
