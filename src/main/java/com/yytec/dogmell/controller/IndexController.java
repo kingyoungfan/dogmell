@@ -60,8 +60,11 @@ public class IndexController {
     public Map<String, Object> restredirect(HttpServletResponse response, @RequestParam Integer isSuccess) throws Exception {
         Map<String, Object> ret = new HashMap<>();
         log.info("{},{}", "12", "23");
-        if (isSuccess.equals(1))
+        if (isSuccess.equals(1)) {
             response.sendRedirect("https://m.fulapay.com/jsPay?merchantNo=111222");
+
+        }
+        log.info("******{},{}", "12", "23");
         ret.put("name", "yangyang");
         ret.put("age", 23);
         return ret;
