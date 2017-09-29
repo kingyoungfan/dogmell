@@ -55,10 +55,13 @@ public class IndexController {
 
     @GetMapping("testredirect")
     @ResponseBody
-    public String restredirect(HttpServletResponse response, @RequestParam Integer isSuccess) throws Exception {
+    public Map<String, Object> restredirect(HttpServletResponse response, @RequestParam Integer isSuccess) throws Exception {
+        Map<String, Object> ret = new HashMap<>();
         if (isSuccess.equals(1))
             response.sendRedirect("https://m.fulapay.com/jsPay?merchantNo=111222");
-        return "no redirect";
+        ret.put("name", "yangyang");
+        ret.put("age", 23);
+        return ret;
     }
 
 
