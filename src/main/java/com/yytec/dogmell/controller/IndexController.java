@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.net.URLEncoder;
 import java.util.*;
 
 /**
@@ -80,4 +81,25 @@ public class IndexController {
     private static String getHostname(HttpServletRequest request) {
         return request.getHeader("X-Forwarded-Proto") + "://" + request.getServerName();
     }
+
+
+    @GetMapping("openid")
+    public Map<String, Object> openid(HttpServletResponse response, HttpServletRequest request,
+                                      @RequestParam(required = false) String code) throws Exception {
+        String weixinServer = "https://www.yangzheng.ren/api/code?redirect_uri=%s";
+        Map<String, Object> ret = new HashMap<>();
+        String redirectUri = URLEncoder.encode(getHostname(request) + request.getRequestURI(), "UTF-8");
+        log.info("******redirectUri:{}", redirectUri);
+        String redirect = String.format(weixinServer, redirectUri);
+        if (Objects.isNull(code)) {
+            log.info("******code is null******");
+            response.sendRedirect(redirect);
+            return null;
+        }
+        log.info("******return code ******");
+        ret.put("code", code);
+        return ret;
+
+    }
+
 }
