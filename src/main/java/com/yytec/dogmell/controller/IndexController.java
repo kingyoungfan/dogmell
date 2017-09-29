@@ -1,5 +1,6 @@
 package com.yytec.dogmell.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.*;
  *
  * @author yangqiankun
  */
+@Slf4j
 @Controller
 @RequestMapping("/api")
 public class IndexController {
@@ -57,6 +59,7 @@ public class IndexController {
     @ResponseBody
     public Map<String, Object> restredirect(HttpServletResponse response, @RequestParam Integer isSuccess) throws Exception {
         Map<String, Object> ret = new HashMap<>();
+        log.info("{},{}", "12", "23");
         if (isSuccess.equals(1))
             response.sendRedirect("https://m.fulapay.com/jsPay?merchantNo=111222");
         ret.put("name", "yangyang");
